@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #22201D;
+    color: #B2AAA0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.7;
+    background-image: 
+      radial-gradient(ellipse at 50% 0%, rgba(224, 93, 79, 0.05) 0%, transparent 60%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: #FFF8F0;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  /* Accessible focus states */
+  *:focus-visible {
+    outline: 2px solid #E05D4F;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom Vintage Effects & Engineering Accents */
+.specimen-tag {
+  background: #2C2926;
+  border: 1px solid #3B3833;
+  position: relative;
+}
+
+.specimen-tag::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #56504A;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Tube filament warm glow */
+@keyframes filamentGlow {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 12px rgba(224, 93, 79, 0.6)); }
+  50% { opacity: 0.95; filter: drop-shadow(0 0 18px rgba(234, 114, 98, 0.85)); }
+}
+
+.tube-glow {
+  animation: filamentGlow 4s ease-in-out infinite;
+}
+
+/* Analog Needle Motion */
+.needle-transition {
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: bottom center;
+}
+
+/* Oscilloscope CRT Scanline Effect (subtle) */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(224, 93, 79, 0.03),
+    rgba(97, 114, 144, 0.02),
+    rgba(255, 248, 240, 0.01)
+  );
+  background-size: 100% 3px, 4px 100%;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar for bench panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #22201D;
+}
+::-webkit-scrollbar-thumb {
+  background: #3B3833;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #617290;
+}
+
+/* Print/Blueprint layout helpers */
+.paper-edge {
+  box-shadow: 
+    0 1px 3px rgba(0,0,0,0.5),
+    0 8px 24px -4px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
